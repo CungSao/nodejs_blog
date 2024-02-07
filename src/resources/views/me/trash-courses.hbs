@@ -1,7 +1,7 @@
 <div class='mt-4'>
   <div>
-    <h3>Khoá học đã đăng</h3>
-    <a href="/me/trash/courses">Thùng rác</a>
+    <a href="/me/stored/courses">Danh sách khoá học</a>
+    <h3>Khoá học đã xoá</h3>
   </div>
   
   <table class='table mt-4'>
@@ -21,21 +21,21 @@
           <td>{{this.level}}</td>
           <td>{{this.createdAt}}</td>
           <td>
-            <a href='/courses/{{this._id}}/edit' class='btn btn-link'>Sửa</a>
+            <a href='' class='btn btn-link btn-restore'>Khôi phục</a>
             <a
               href=''
               class='btn btn-link'
               data-bs-toggle='modal'
               data-id='{{this._id}}'
               data-bs-target='#delete-course-modal'
-            >Xoá</a>
+            >Xoá vĩnh viễn</a>
           </td>
         </tr>
         {{else}}
         <tr>
           <td colspan='5' class='text-center'>
-            Bạn chưa đăng khoá học nào.
-            <a href="/courses/create">Đăng khoá học</a>
+            Thùng rác trống
+            <a href="/me/stored/courses">Danh sách khoá học</a>
           </td>
         </tr>
       {{/each}}
@@ -67,7 +67,6 @@
 
 <script>
   var deleteCourse = document.getElementById('delete-course-modal');
-
   var courseId;
   var btnDeleteCourse = document.getElementById('btn-delete-course');
   var deleteForm = document.forms['delete-course-form'];
@@ -83,4 +82,5 @@
     deleteForm.action = `/courses/${courseId}?_method=DELETE`;
     deleteForm.submit();
   }
+  
 </script>
