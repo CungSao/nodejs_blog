@@ -17,7 +17,7 @@
       <option value="delete">Xoá</option>
     </select>
 
-    <button class="btn btn-primary btn-sm check-all-submit-btn disabled"> Thực hiện </button>
+    <button class="btn btn-primary btn-sm check-all-submit-btn" disabled> Thực hiện </button>
   </div>
 
   <table class='table mt-4'>
@@ -125,11 +125,7 @@
     // Re-render check all submit btn
     function renderCheckAllSubmitBtn() {
       var checkedCount = courseItemCheckbox.filter(':checked').length;
-      if (checkedCount) {
-        checkAllSubmitBtn.removeClass('disabled')
-      } else {
-        checkAllSubmitBtn.addClass('disabled')
-      }
+      checkAllSubmitBtn.attr('disabled', !checkedCount)
     }
 
   })
